@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.wzp.mvvm_template.ui.other.test.TestFragment"
+        android:label="TestFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.wzp.mvvm_template.ui.other.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainNavFragment"
+            app:destination="@id/mainNavFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainNavFragment"
+        android:name="com.wzp.mvvm_template.ui.mainNav.MainNavFragment"
+        android:label="MainNavFragment" >
+        <action
+            android:id="@+id/action_mainNavFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+</navigation>
