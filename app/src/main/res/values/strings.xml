@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MVVM_Template</string>
+    <string name="private_content">
+        《个人课程表》以下简称<b>本软件</b>。\n\n
+        本软件并不会收集或者使用您的任何信息，因为本软件无联网操作并且无任何付费问题。\n\n
+        本软件所有功能是完全免费并且无广告的。\n\n
+        本软件的用于记录用户的上课信息还有待办事项。\n\n
+        需要您基于存储方面的权限(这是必须的)，用于对课程表内容的导入以及分享。\n\n
+    </string>
 </resources>
