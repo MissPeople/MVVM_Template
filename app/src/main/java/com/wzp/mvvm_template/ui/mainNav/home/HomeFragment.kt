@@ -6,8 +6,9 @@ import com.wzp.mvvm_template.R
 import com.wzp.mvvm_template.base.BaseFragment
 import com.wzp.mvvm_template.databinding.FragmentHomeBinding
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, ViewModel>(
-    FragmentHomeBinding::inflate
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
+    FragmentHomeBinding::inflate,
+    HomeViewModel::class.java
 ) {
     override fun fragmentInit() {
         binding.tvHome.setOnClickListener {
