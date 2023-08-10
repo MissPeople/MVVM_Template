@@ -1,4 +1,4 @@
-package com.wzp.mvvm_template.base
+package com.wzp.mvvm_template.presentation.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

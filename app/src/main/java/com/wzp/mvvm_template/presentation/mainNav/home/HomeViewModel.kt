@@ -1,4 +1,4 @@
-package com.wzp.mvvm_template.ui.mainNav.home
+package com.wzp.mvvm_template.presentation.mainNav.home
 
 import androidx.lifecycle.ViewModel
 

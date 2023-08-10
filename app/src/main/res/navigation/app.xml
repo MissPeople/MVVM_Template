@@ -6,11 +6,11 @@
 
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.wzp.mvvm_template.ui.other.test.TestFragment"
+        android:name="com.wzp.mvvm_template.presentation.other.test.TestFragment"
         android:label="TestFragment" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.wzp.mvvm_template.ui.other.login.LoginFragment"
+        android:name="com.wzp.mvvm_template.presentation.other.login.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_mainNavFragment"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainNavFragment"
-        android:name="com.wzp.mvvm_template.ui.mainNav.MainNavFragment"
+        android:name="com.wzp.mvvm_template.presentation.mainNav.MainNavFragment"
         android:label="MainNavFragment" >
         <action
             android:id="@+id/action_mainNavFragment_to_testFragment"

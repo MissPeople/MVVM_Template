@@ -6,10 +6,10 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.wzp.mvvm_template.ui.mainNav.home.HomeFragment"
+        android:name="com.wzp.mvvm_template.presentation.mainNav.home.HomeFragment"
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/mineFragment"
-        android:name="com.wzp.mvvm_template.ui.mainNav.mine.MineFragment"
+        android:name="com.wzp.mvvm_template.presentation.mainNav.mine.MineFragment"
         android:label="MineFragment" />
 </navigation>

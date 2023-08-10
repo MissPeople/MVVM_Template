@@ -1,10 +1,10 @@
-package com.wzp.mvvm_template.ui.mainNav
+package com.wzp.mvvm_template.presentation.mainNav
 
 import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.wzp.mvvm_template.R
-import com.wzp.mvvm_template.base.BaseFragment
+import com.wzp.mvvm_template.presentation.base.BaseFragment
 import com.wzp.mvvm_template.databinding.FragmentMainNavBinding
 
 class MainNavFragment : BaseFragment<FragmentMainNavBinding, ViewModel>(

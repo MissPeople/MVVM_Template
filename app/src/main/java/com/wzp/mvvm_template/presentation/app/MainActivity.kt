@@ -1,8 +1,7 @@
-package com.wzp.mvvm_template.ui.app
+package com.wzp.mvvm_template.presentation.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.wzp.mvvm_template.R
 import com.wzp.mvvm_template.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.wzp.mvvm_template.dialog
+package com.wzp.mvvm_template.util.dialog
 
 import android.app.Dialog
 import android.content.Context
