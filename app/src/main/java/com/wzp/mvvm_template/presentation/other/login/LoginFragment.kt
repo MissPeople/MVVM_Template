@@ -26,6 +26,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
                     is LoginContract.Effect.ToastMsg -> {
                         LogUtil.i(it.msg)
                         Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
+                        jump()
                     }
                 }
             }

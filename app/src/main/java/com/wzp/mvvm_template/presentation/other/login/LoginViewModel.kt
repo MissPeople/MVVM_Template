@@ -20,7 +20,8 @@ class LoginViewModel : BaseViewModel() {
     override fun handleEvent(event: UiEvent) {
         when (event) {
             is LoginContract.Event.Login -> {
-                login(event.loginInfo)
+                //login(event.loginInfo)
+                triggerEffect { LoginContract.Effect.ToastMsg("loading") }
             }
         }
     }
