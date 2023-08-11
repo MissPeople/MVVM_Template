@@ -5,5 +5,5 @@ import com.wzp.mvvm_template.domain.model.LoginInfo
 import com.wzp.mvvm_template.domain.model.User
 
 interface LoginRepository {
-    suspend fun login(loginInfo: LoginInfo) : ApiResponse<User>
+    suspend fun login(loginInfo: LoginInfo): ApiResponse<User>
 }

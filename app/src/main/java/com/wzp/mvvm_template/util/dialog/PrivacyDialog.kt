@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.wzp.mvvm_template.R
 
-class PrivacyDialog(context:Context,bottomListen: BottomListen) : Dialog(context) {
-    interface BottomListen{
-        fun click(mode:Int)
+class PrivacyDialog(context: Context, bottomListen: BottomListen) : Dialog(context) {
+    interface BottomListen {
+        fun click(mode: Int)
     }
 
     init {
@@ -17,8 +17,8 @@ class PrivacyDialog(context:Context,bottomListen: BottomListen) : Dialog(context
         window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         window?.setGravity(Gravity.CENTER)
         window?.setBackgroundDrawableResource(R.drawable.around_a)
-        val allowBtn=findViewById<TextView>(R.id.allow)
-        val refuseBtn=findViewById<TextView>(R.id.refuse)
+        val allowBtn = findViewById<TextView>(R.id.allow)
+        val refuseBtn = findViewById<TextView>(R.id.refuse)
         allowBtn.setOnClickListener {
             bottomListen.click(1)
             dismiss()

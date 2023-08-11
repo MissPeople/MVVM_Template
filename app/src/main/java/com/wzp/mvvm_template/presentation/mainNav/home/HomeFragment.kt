@@ -11,7 +11,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 ) {
     override fun fragmentInit() {
         binding.tvHome.setOnClickListener {
-            requireActivity().findNavController(R.id.app_nav).navigate(R.id.action_mainNavFragment_to_testFragment)
+            requireActivity().findNavController(R.id.app_nav)
+                .navigate(R.id.action_mainNavFragment_to_testFragment)
         }
     }
 }

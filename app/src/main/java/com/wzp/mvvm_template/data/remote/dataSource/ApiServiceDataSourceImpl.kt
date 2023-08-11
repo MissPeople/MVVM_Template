@@ -12,6 +12,6 @@ class ApiServiceDataSourceImpl : ApiServiceDataSource {
 
 
     override suspend fun login(loginInfo: LoginInfo): ApiResponse<User> {
-        return apiService.login(loginInfo.name,loginInfo.password).await()
+        return apiService.login(loginInfo.name, loginInfo.password).await()
     }
 }

@@ -6,7 +6,7 @@ import com.wzp.mvvm_template.presentation.base.UiEvent
 import com.wzp.mvvm_template.presentation.base.UiState
 
 object LoginContract {
-    sealed class Event: UiEvent{
+    sealed class Event : UiEvent {
         data class Login(val loginInfo: LoginInfo) : Event()
     }
 

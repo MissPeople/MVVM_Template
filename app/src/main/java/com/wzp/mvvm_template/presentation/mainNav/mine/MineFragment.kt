@@ -11,7 +11,7 @@ class MineFragment : BaseFragment<FragmentMineBinding, ViewModel>(
 ) {
     override fun fragmentInit() {
         binding.tvMine.setOnClickListener {
-            PrivacyDialog(requireContext(),object : PrivacyDialog.BottomListen{
+            PrivacyDialog(requireContext(), object : PrivacyDialog.BottomListen {
                 override fun click(mode: Int) {
                     Toast.makeText(requireContext(), mode.toString(), Toast.LENGTH_SHORT).show()
                 }

@@ -2,7 +2,6 @@ package com.wzp.mvvm_template.data.remote.network
 
 import com.wzp.mvvm_template.domain.model.User
 import retrofit2.Call
-import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
