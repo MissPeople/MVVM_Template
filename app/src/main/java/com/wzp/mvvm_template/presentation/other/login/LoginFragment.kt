@@ -37,7 +37,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(
         findNavController().navigate(
             R.id.mainNavFragment,
             null,
-            NavOptions.Builder().setPopUpTo(R.id.loginFragment, true).build()
+            NavOptions.Builder()
+                .setPopUpTo(R.id.loginFragment, true)
+                .setLaunchSingleTop(true)
+                .build()
         )
     }
 

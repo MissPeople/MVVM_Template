@@ -25,7 +25,10 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, ViewModel>(
                 findNavController().navigate(
                     R.id.loginFragment,
                     null,
-                    NavOptions.Builder().setPopUpTo(R.id.splashFragment, true).build()
+                    NavOptions.Builder()
+                        .setPopUpTo(R.id.splashFragment, true)
+                        .setLaunchSingleTop(true)
+                        .build()
                 )
             })
             start()
