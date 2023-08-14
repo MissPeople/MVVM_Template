@@ -1,10 +1,12 @@
 package com.wzp.mvvm_template.presentation.app
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class App : Application() {
     companion object {
-        lateinit var instance : App
+        lateinit var instance: App
     }
 
     override fun onCreate() {

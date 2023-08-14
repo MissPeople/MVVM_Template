@@ -1,20 +1,34 @@
 package com.wzp.mvvm_template.presentation.other.splash
 
 import android.animation.ValueAnimator
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.animation.doOnEnd
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.wzp.mvvm_template.R
 import com.wzp.mvvm_template.databinding.FragmentSplashBinding
-import com.wzp.mvvm_template.presentation.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class SplashFragment : BaseFragment<FragmentSplashBinding, ViewModel>(
-    FragmentSplashBinding::inflate
-) {
+@AndroidEntryPoint
+class SplashFragment : Fragment() {
+
+    private lateinit var binding: FragmentSplashBinding
     private val animation = ValueAnimator.ofInt(0, 1000)
-    override fun fragmentInit() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentSplashBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         animation.apply {
             duration = 3000
             addUpdateListener {

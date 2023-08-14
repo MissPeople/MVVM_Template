@@ -6,11 +6,14 @@ import com.wzp.mvvm_template.data.repository.login.LoginRepositoryImpl
 import com.wzp.mvvm_template.domain.model.LoginInfo
 import com.wzp.mvvm_template.presentation.base.BaseViewModel
 import com.wzp.mvvm_template.presentation.base.UiEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel : BaseViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor() : BaseViewModel() {
 
     private val _state = MutableStateFlow(
         LoginContract.State()

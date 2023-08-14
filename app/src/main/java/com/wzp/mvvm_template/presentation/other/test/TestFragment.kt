@@ -1,13 +1,7 @@
 package com.wzp.mvvm_template.presentation.other.test
 
-import androidx.lifecycle.ViewModel
-import com.wzp.mvvm_template.presentation.base.BaseFragment
-import com.wzp.mvvm_template.databinding.FragmentTestBinding
+import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class TestFragment : BaseFragment<FragmentTestBinding, ViewModel>(
-    FragmentTestBinding::inflate
-) {
-    override fun fragmentInit() {
-
-    }
-}
+@AndroidEntryPoint
+class TestFragment : Fragment()
