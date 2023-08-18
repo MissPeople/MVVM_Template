@@ -15,6 +15,8 @@ object LoginContract {
     ) : UiState
 
     sealed class Effect : UiEffect {
-        data class ToastMsg(val msg: String) : Effect()
+        object Loading : Effect()
+        object Popup : Effect()
+        object Error : Effect()
     }
 }

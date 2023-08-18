@@ -1,6 +1,5 @@
 package com.wzp.mvvm_template.presentation.other.login
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import com.wzp.mvvm_template.R
 import com.wzp.mvvm_template.databinding.FragmentLoginBinding
 import com.wzp.mvvm_template.domain.model.LoginInfo
-import com.wzp.mvvm_template.util.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -35,18 +33,28 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.etName.setText("wanandroidtest202301")
+        binding.etPwd.setText("zxcvbnm")
+
         binding.tvLogin.setOnClickListener {
             viewModel.notifyEvent(
-                LoginContract.Event.Login(LoginInfo("wanandroidtest202301", "zxcvbnm"))
+                LoginContract.Event.Login(LoginInfo(binding.etName.text.toString(), binding.etPwd.text.toString()))
             )
         }
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.effect.collect {
                     when (it) {
-                        is LoginContract.Effect.ToastMsg -> {
-                            LogUtil.i(it.msg)
-                            Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
+                        is LoginContract.Effect.Error -> {
+                            binding.progressBar.visibility = View.GONE
+                            Toast.makeText(requireContext(), "登录失败", Toast.LENGTH_SHORT).show()
+                        }
+
+                        is LoginContract.Effect.Loading -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
+
+                        is LoginContract.Effect.Popup -> {
                             jump()
                         }
                     }

@@ -1,8 +1,9 @@
 package com.wzp.mvvm_template.presentation.other.login
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.wzp.mvvm_template.data.remote.network.ApiResponse
-import com.wzp.mvvm_template.data.repository.login.LoginRepositoryImpl
+import com.wzp.mvvm_template.data.remote.network.Result
+import com.wzp.mvvm_template.data.repository.login.LoginRepository
 import com.wzp.mvvm_template.domain.model.LoginInfo
 import com.wzp.mvvm_template.presentation.base.BaseViewModel
 import com.wzp.mvvm_template.presentation.base.UiEvent
@@ -13,7 +14,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor() : BaseViewModel() {
+class LoginViewModel @Inject constructor(
+    private val loginRepository: LoginRepository
+) : BaseViewModel() {
 
     private val _state = MutableStateFlow(
         LoginContract.State()
@@ -23,26 +26,31 @@ class LoginViewModel @Inject constructor() : BaseViewModel() {
     override fun handleEvent(event: UiEvent) {
         when (event) {
             is LoginContract.Event.Login -> {
-                //login(event.loginInfo)
-                triggerEffect { LoginContract.Effect.ToastMsg("loading") }
+                triggerEffect { LoginContract.Effect.Loading }
+                login(event.loginInfo)
             }
         }
     }
 
     private fun login(loginInfo: LoginInfo) {
         viewModelScope.launch {
-            LoginRepositoryImpl().login(loginInfo).apply {
+            loginRepository.login(loginInfo).apply {
                 when (this) {
-                    is ApiResponse.OnLoading -> {
-                        triggerEffect { LoginContract.Effect.ToastMsg("loading") }
+                    is Result.OnLoading -> {
+                        triggerEffect { LoginContract.Effect.Loading }
                     }
 
-                    is ApiResponse.OnError -> {
-                        triggerEffect { LoginContract.Effect.ToastMsg("loading") }
+                    is Result.OnError -> {
+                        triggerEffect { LoginContract.Effect.Error }
                     }
 
-                    is ApiResponse.OnSuccess -> {
-                        triggerEffect { LoginContract.Effect.ToastMsg(this.response.toString()) }
+                    is Result.OnSuccess -> {
+                        if(response.errorCode == -1) {
+                            triggerEffect { LoginContract.Effect.Error }
+                        } else {
+                            triggerEffect { LoginContract.Effect.Popup }
+                        }
+
                     }
                 }
             }

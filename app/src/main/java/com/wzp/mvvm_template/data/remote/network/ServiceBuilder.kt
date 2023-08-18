@@ -53,21 +53,21 @@ object ServiceBuilder {
 
     fun <T> create(serviceClass: Class<T>): T = retrofit.create(serviceClass)
 
-    suspend fun <T> Call<T>.await(): ApiResponse<T> {
+    suspend fun <T> Call<T>.await(): Result<T> {
         return suspendCoroutine { continuation ->
             enqueue(object : Callback<T> {
                 override fun onResponse(call: Call<T>, response: Response<T>) {
                     val body = response.body() as T
                     val code = response.code()
                     if (code == 200) {
-                        continuation.resume(ApiResponse.OnSuccess(body))
+                        continuation.resume(Result.OnSuccess(body))
                     } else {
-                        continuation.resume(ApiResponse.OnError(code.toString()))
+                        continuation.resume(Result.OnError(code.toString()))
                     }
                 }
 
                 override fun onFailure(call: Call<T>, t: Throwable) {
-                    continuation.resume(ApiResponse.OnError("error"))
+                    continuation.resume(Result.OnError("error"))
                 }
             })
         }
