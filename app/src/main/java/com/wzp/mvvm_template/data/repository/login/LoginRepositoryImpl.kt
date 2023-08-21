@@ -7,8 +7,8 @@ import com.wzp.mvvm_template.domain.model.User
 import javax.inject.Inject
 
 class LoginRepositoryImpl @Inject constructor(
-    private val apiServiceDataSource : ApiServiceDataSource
-): LoginRepository {
+    private val apiServiceDataSource: ApiServiceDataSource
+) : LoginRepository {
 
     override suspend fun login(loginInfo: LoginInfo): Result<User> {
         return apiServiceDataSource.login(loginInfo)

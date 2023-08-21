@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.wzp.mvvm_template.R
 import com.wzp.mvvm_template.databinding.FragmentLoginBinding
 import com.wzp.mvvm_template.domain.model.LoginInfo
+import com.wzp.mvvm_template.util.LogUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -38,7 +39,12 @@ class LoginFragment : Fragment() {
 
         binding.tvLogin.setOnClickListener {
             viewModel.notifyEvent(
-                LoginContract.Event.Login(LoginInfo(binding.etName.text.toString(), binding.etPwd.text.toString()))
+                LoginContract.Event.Login(
+                    LoginInfo(
+                        binding.etName.text.toString(),
+                        binding.etPwd.text.toString()
+                    )
+                )
             )
         }
         viewLifecycleOwner.lifecycleScope.launch {
